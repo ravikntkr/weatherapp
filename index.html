@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
+    <title>Weather Informations</title>
+    <link rel="shortcut icon" href="./weather-app.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/mdscreen.css" />
+    <link rel="stylesheet" href="./css/smscreen.css" />
+    <script src="script.js" defer></script>
+    <!-- Google font CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <nav>
+        <form onsubmit="getData(event)" class="searchData">
+          <input
+            id="inputBox"
+            type="text"
+            placeholder="Enter the city name"
+            class="search-bx"
+          />
+          <button class="search-btn">Search</button>
+        </form>
+        <div class="time-box">
+          <h1 id="current-time">00:00:00</h1>
+        </div>
+      </nav>
+      <!-- Main - section  -->
+      <section class="current-weather">
+        <div class="current-weather-left">
+          <h1 id="city-name">City</h1>
+          <span id="coma">,</span>
+          <h1 id="state-name">State</h1>
+          <span id="coma">,</span>
+          <h1 id="country-name">Country</h1>
+          <p id="timeDate">Day 00 Month</p>
+          <div class="weather-data">
+            <div class="weather-icon">
+              <img
+                width="60px"
+                id="logoImage"
+                src="./weather-app.png"
+                alt="icon"
+              />
+            </div>
+            <div class="current-temp">
+              <h1 class="current-temp-style">
+                <span id="current-temp">00</span><sup>o</sup>
+              </h1>
+              <p id="weather-condition">Condition</p>
+            </div>
+            <!-- humidity -->
+            <div class="humidity-icon">
+              <img
+                width="50px"
+                id="logoImage"
+                src="./thermometer.png"
+                alt="icon"
+              />
+            </div>
+            <div class="current-temp">
+              <h1 class="current-temp-style Humidity-txt">
+                <span id="humidity-val">00</span>
+              </h1>
+              <p id="humidity-con">Humidity</p>
+            </div>
+          </div>
+        </div>
+        <!-- right -->
+        <div class="current-weather-right">
+          <div class="row-1">
+            <div class="current-card high">
+              <p class="sm-card-txt">
+                <span id="high-temp">00</span><sup>o</sup>
+              </p>
+              <p class="hight-temp-txt">High Temp.</p>
+            </div>
+            <!-- Card 2  -->
+            <div class="current-card">
+              <p class="sm-card-txt"><span id="wind">0</span>mph</p>
+              <p class="hight-temp-txt">Wind</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="current-card">
+              <p id="sunrise" class="sm-card-txt">00:00</p>
+              <p class="hight-temp-txt">Sunrise</p>
+            </div>
+          </div>
+          <!-- Row 2 -->
+          <div class="row-2">
+            <!-- Card 4 -->
+            <div class="current-card">
+              <p class="sm-card-txt">
+                <span id="low-temp">00</span><sup>o</sup>
+              </p>
+              <p class="hight-temp-txt">Low Temp.</p>
+            </div>
+            <!-- Card 5 -->
+            <div class="current-card">
+              <p class="sm-card-txt"><span id="rain">00</span>%</p>
+              <p class="hight-temp-txt">Rain</p>
+            </div>
+            <!-- Card 6 -->
+            <div class="current-card">
+              <p id="sunset" class="sm-card-txt">00:00</p>
+              <p class="hight-temp-txt">Sunset</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <h1 class="today-weather-heading heading-lg">Todays weather</h1>
+      <div class="today-weather-box">
+        <!-- 3am -->
+        <div class="weather-card">
+          <p class="today-time-txt"><span id="time-3am">00:00</span></p>
+          <img
+            width="40px"
+            id="logoImage-3am"
+            src="./weather-app.png"
+            alt="icon"
+          />
+          <p class="today-temp-txt">
+            <span id="temp-3am">00</span><sup>o</sup>
+          </p>
+        </div>
+        <!-- 6am -->
+        <div class="weather-card">
+          <p class="today-time-txt"><span id="time-6am">00:00</span></p>
+          <img
+            width="40px"
+            id="logoImage-6am"
+            src="./weather-app.png"
+            alt="icon"
+          />
+          <p class="today-temp-txt">
+            <span id="temp-6am">00</span><sup>o</sup>
+          </p>
+        </div>
+        <!-- 9am -->
+        <div class="weather-card">
+          <p class="today-time-txt"><span id="time-9am">00:00</span></p>
+          <img
+            width="40px"
+            id="logoImage-9am"
+            src="./weather-app.png"
+            alt="icon"
+          />
+          <p class="today-temp-txt">
+            <span id="temp-9am">00</span><sup>o</sup>
+          </p>
+        </div>
+        <!-- 12pm -->
+        <div class="weather-card">
+          <p class="today-time-txt"><span id="time-12pm">00:00</span></p>
+          <img
+            width="40px"
+            id="logoImage-12pm"
+            src="./weather-app.png"
+            alt="icon"
+          />
+          <p class="today-temp-txt">
+            <span id="temp-12pm">00</span><sup>o</sup>
+          </p>
+        </div>
+        <!-- 3pm -->
+        <div class="weather-card">
+          <p class="today-time-txt"><span id="time-3pm">00:00</span></p>
+          <img
+            width="40px"
+            id="logoImage-3pm"
+            src="./weather-app.png"
+            alt="icon"
+          />
+          <p class="today-temp-txt">
+            <span id="temp-3pm">00</span><sup>o</sup>
+          </p>
+        </div>
+        <!-- 6pm -->
+        <div class="weather-card">
+          <p class="today-time-txt"><span id="time-6pm">00:00</span></p>
+          <img
+            width="40px"
+            id="logoImage-6pm"
+            src="./weather-app.png"
+            alt="icon"
+          />
+          <p class="today-temp-txt">
+            <span id="temp-6pm">00</span><sup>o</sup>
+          </p>
+        </div>
+        <!-- 9pm -->
+        <div class="weather-card">
+          <p class="today-time-txt"><span id="time-9pm">00:00</span></p>
+          <img
+            width="40px"
+            id="logoImage-9pm"
+            src="./weather-app.png"
+            alt="icon"
+          />
+          <p class="today-temp-txt">
+            <span id="temp-9pm">00</span><sup>o</sup>
+          </p>
+        </div>
+        <!-- 12am -->
+        <div class="weather-card">
+          <p class="today-time-txt"><span id="time-12am">00:00</span></p>
+          <img
+            width="40px"
+            id="logoImage-12am"
+            src="./weather-app.png"
+            alt="icon"
+          />
+          <p class="today-temp-txt">
+            <span id="temp-12am">00</span><sup>o</sup>
+          </p>
+        </div>
+      </div>
+      <!-- 7 Days forecast -->
+      <h1 class="7day-weather-heading heading-lg">Next 5 days</h1>
+      <div class="days7">
+        <!-- Day 1 -->
+        <div class="day-card">
+          <!-- day -->
+          <div class="dayMonth">
+            <p id="date-1" class="day7CardTitle">00/0</p>
+            <p id="day1" class="day7CardText">Day</p>
+          </div>
+          <!-- icon -->
+          <div class="day-icon">
+            <img
+              width="40px"
+              id="day1-icon"
+              src="./weather-app.png"
+              alt="icon"
+            />
+          </div>
+          <!-- temp -->
+          <div class="day-temp">
+            <p class="day7CardTitle inline">
+              <span id="day1LowTemp">00</span><sup>o</sup> -
+            </p>
+            <p class="day7CardTitle inline">
+              <span id="day1HighTemp"> 00</span><sup>o</sup>
+            </p>
+            <p class="day7CardText">Temp</p>
+          </div>
+
+          <!-- Rain -->
+          <div class="day-rain">
+            <p class="day7CardTitle"><span id="day1Rain">00</span>%</p>
+            <p class="day7CardText">Rain</p>
+          </div>
+        </div>
+        <!-- Day 2 -->
+        <div class="day-card">
+          <!-- day -->
+          <div class="dayMonth">
+            <p id="date-2" class="day7CardTitle">00/0</p>
+            <p id="day2" class="day7CardText">Day</p>
+          </div>
+          <!-- icon -->
+          <div class="day-icon">
+            <img
+              width="40px"
+              id="day2-icon"
+              src="./weather-app.png"
+              alt="icon"
+            />
+          </div>
+          <!-- temp -->
+          <div class="day-temp">
+            <p class="day7CardTitle inline">
+              <span id="day2LowTemp">00</span><sup>o</sup> -
+            </p>
+            <p class="day7CardTitle inline">
+              <span id="day2HighTemp"> 00</span><sup>o</sup>
+            </p>
+            <p class="day7CardText">Temp</p>
+          </div>
+
+          <!-- Rain -->
+          <div class="day-rain">
+            <p class="day7CardTitle"><span id="day2Rain">00</span>%</p>
+            <p class="day7CardText">Rain</p>
+          </div>
+        </div>
+        <!-- Day 3 -->
+        <div class="day-card">
+          <!-- day -->
+          <div class="dayMonth">
+            <p id="date-3" class="day7CardTitle">00/0</p>
+            <p id="day3" class="day7CardText">Day</p>
+          </div>
+          <!-- icon -->
+          <div class="day-icon">
+            <img
+              width="40px"
+              id="day3-icon"
+              src="./weather-app.png"
+              alt="icon"
+            />
+          </div>
+          <!-- temp -->
+          <div class="day-temp">
+            <p class="day7CardTitle inline">
+              <span id="day3LowTemp">00</span><sup>o</sup> -
+            </p>
+            <p class="day7CardTitle inline">
+              <span id="day3HighTemp"> 00</span><sup>o</sup>
+            </p>
+            <p class="day7CardText">Temp</p>
+          </div>
+
+          <!-- Rain -->
+          <div class="day-rain">
+            <p class="day7CardTitle"><span id="day3Rain">00</span>%</p>
+            <p class="day7CardText">Rain</p>
+          </div>
+        </div>
+        <!-- Day 4 -->
+        <div class="day-card">
+          <!-- day -->
+          <div class="dayMonth">
+            <p id="date-4" class="day7CardTitle">00/0</p>
+            <p id="day4" class="day7CardText">Day</p>
+          </div>
+          <!-- icon -->
+          <div class="day-icon">
+            <img
+              width="40px"
+              id="day4-icon"
+              src="./weather-app.png"
+              alt="icon"
+            />
+          </div>
+          <!-- temp -->
+          <div class="day-temp">
+            <p class="day7CardTitle inline">
+              <span id="day4LowTemp">00</span><sup>o</sup> -
+            </p>
+            <p class="day7CardTitle inline">
+              <span id="day4HighTemp"> 00</span><sup>o</sup>
+            </p>
+            <p class="day7CardText">Temp</p>
+          </div>
+
+          <!-- Rain -->
+          <div class="day-rain">
+            <p class="day7CardTitle"><span id="day4Rain">00</span>%</p>
+            <p class="day7CardText">Rain</p>
+          </div>
+        </div>
+        <!-- Day 5 -->
+        <div class="day-card">
+          <!-- day -->
+          <div class="dayMonth">
+            <p id="date-5" class="day7CardTitle">00/0</p>
+            <p id="day5" class="day7CardText">Day</p>
+          </div>
+          <!-- icon -->
+          <div class="day-icon">
+            <img
+              width="40px"
+              id="day5-icon"
+              src="./weather-app.png"
+              alt="icon"
+            />
+          </div>
+          <!-- temp -->
+          <div class="day-temp">
+            <p class="day7CardTitle inline">
+              <span id="day5LowTemp">00</span><sup>o</sup> -
+            </p>
+            <p class="day7CardTitle inline">
+              <span id="day5HighTemp"> 00</span><sup>o</sup>
+            </p>
+            <p class="day7CardText">Temp</p>
+          </div>
+
+          <!-- Rain -->
+          <div class="day-rain">
+            <p class="day7CardTitle"><span id="day5Rain">00</span>%</p>
+            <p class="day7CardText">Rain</p>
+          </div>
+        </div>
+      </div>
+      <p class="author">
+        Made with ❤️ by
+        <a href="https://www.linkedin.com/in/ravikantkr/" target="_blank"
+          >Ravikant K.</a
+        >
+      </p>
+    </main>
+  </body>
+</html>

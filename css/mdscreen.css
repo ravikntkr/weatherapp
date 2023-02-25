@@ -1,0 +1,128 @@
+@media only screen and (max-width: 992px) and (min-width: 600px) {
+  body {
+    height: 1500px;
+  }
+
+  main {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: inherit;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  form {
+    width: 80%;
+    display: flex;
+  }
+
+  .time-box {
+    width: 20%;
+  }
+
+  .search-btn {
+    position: absolute;
+    left: 370px;
+    margin-left: 0px;
+    margin-top: 15px;
+  }
+
+  #current-time {
+    font-size: 30px;
+    font-weight: 500;
+    color: #ffffff;
+  }
+
+  /* Main section styling */
+
+  .current-weather-left {
+    width: 30%;
+  }
+
+  .current-weather-right {
+    width: 70%;
+    padding-left: 30px;
+  }
+
+  #city-name,
+  #country-name,
+  #state-name {
+    font-size: 23px;
+  }
+
+  #timeDate {
+    font-size: 18px;
+    color: #ffffff;
+    margin-top: 10px;
+  }
+
+  .weather-data {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .weather-data div {
+    width: 33%;
+    margin-bottom: 10px;
+  }
+
+  .current-temp-style {
+    font-size: 35px;
+  }
+
+  .humidity-icon {
+    margin-left: 0;
+  }
+
+  .Humidity-txt {
+    font-size: 25px;
+  }
+
+  .current-card {
+    width: 32%;
+    padding: 34px 20px;
+  }
+
+  .sm-card-txt {
+    font-size: 20px;
+  }
+
+  #coma {
+    font-size: 20px;
+  }
+
+  .hight-temp-txt {
+    font-size: 17px;
+  }
+
+  /* Today forecast */
+
+  .today-weather-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .weather-card {
+    padding: 20px 15px;
+  }
+
+  .weather-card img {
+    margin: 0 auto;
+  }
+
+  .today-time-txt {
+    font-size: 16px;
+  }
+
+  /* 7 days forecast */
+
+  .day-card {
+    padding: 20px 25px;
+  }
+}
